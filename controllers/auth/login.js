@@ -37,6 +37,23 @@ exports.login = async (req, res) => {
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours
             httpOnly: true
         };
+        
+        // // Additional driver-specific data
+        // const userData = {
+        //     _id: user._id,
+        //     fullName: user.fullName,
+        //     email: user.email,
+        //     phoneNumber: user.phoneNumber,
+        //     role: user.role,
+        //     isVerified: user.isVerified
+        // };
+
+        // // If user is a driver, include additional info
+        // if (user.role === 'driver') {
+        //     userData.isAvailable = user.isAvailable || false;
+        //     userData.currentLocation = user.currentLocation || null;
+        //     userData.vehicleDetails = user.vehicleDetails || null;
+        // }
 
         return res.cookie("token", token, options).status(200).json({
             success: true,

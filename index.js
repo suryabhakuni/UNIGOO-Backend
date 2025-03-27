@@ -7,6 +7,7 @@ const database = require("./config/database");
 const { cloudinaryConnect } = require("./config/cloudinary");
 const authRoutes = require("./routes/auth.routes");
 const profileRoutes = require("./routes/profile.routes");
+const rideRoutes = require("./routes/ride.routes");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 4000;
@@ -35,6 +36,7 @@ app.use(fileUpload({
 // Ensure correct path
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/ride", rideRoutes);
 
 //default route
 app.get("/", (req, res) => {
